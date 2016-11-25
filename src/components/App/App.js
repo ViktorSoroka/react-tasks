@@ -3,7 +3,7 @@ import React from 'react';
 import logo from '../../logo.svg';
 import './App.css';
 
-export default App => (
+const App = () => (
     <div className="app">
         <div className="app-header">
             <img src={logo} className="app-header__logo" alt="logo"/>
@@ -12,3 +12,5 @@ export default App => (
         Let`s go
     </div>
 );
+
+export default App;
