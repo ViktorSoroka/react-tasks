@@ -1,5 +1,7 @@
 import React from 'react';
 
+import TestComponent from '../TestComponent/TestComponent';
+
 import logo from '../../logo.svg';
 import './App.css';
 
@@ -9,7 +11,7 @@ const App = () => (
             <img src={logo} className="app-header__logo" alt="logo"/>
             <h2>Welcome to React</h2>
         </div>
-        Let`s go
+        <TestComponent />
     </div>
 );
 
