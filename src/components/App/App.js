@@ -11,7 +11,7 @@ const App = () => (
             <img src={logo} className="app-header__logo" alt="logo"/>
             <h2>Welcome to React</h2>
         </div>
-        <TestComponent />
+        <TestComponent nano="2"/>
     </div>
 );
 
