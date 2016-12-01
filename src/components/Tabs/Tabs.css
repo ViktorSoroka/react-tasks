@@ -1,0 +1,38 @@
+.tabs {
+    display: block;
+    width: 500px;
+    min-height: 500px;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    margin: 20px auto 0;
+    justify-content: center;
+    background: #ccc;
+}
+
+.tabs__titles {
+    width: 100%;
+    padding: 20px 0;
+}
+
+.tabs__btn {
+    padding: 3px 10px;
+    margin-right: 10px;
+    border-radius: 2px;
+    border: none;
+    background: #fff;
+    cursor: pointer;
+    color: #66aeef;
+}
+
+.tabs__btn.is-active {
+    outline: 1px solid #7fffdd;
+}
+
+.tabs__content {
+    padding: 20px;
+    text-align: left;
+}
+
+.tabs__tab {
+    padding: 5px 10px;
+}
