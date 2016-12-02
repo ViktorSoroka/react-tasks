@@ -21,12 +21,18 @@ export default function handleErrors(WrappedComponent) {
 
     class Enhancer extends WrappedComponent {
         constructor(props) {
-            super(props);
+            try {
+                super(props);
 
-            this.state = {
-                isError     : false,
-                errorMessage: ''
-            };
+                this.state = {
+                    isError     : false,
+                    errorMessage: ''
+                };
+            } catch (err) {
+                console.error(err);
+                document.body.innerHTML = `<div class="error-message">${makeErrorMessage('constructor', err.stack.toString())}</div>`;
+                throw new Error('Error in constructor');
+            }
         }
     }
 
