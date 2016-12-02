@@ -10,26 +10,34 @@ class Tabs extends Component {
         this.props.setTab(tabIndex);
     };
 
+    findCurrentTab() {
+        const { tabs, currentTabId } = this.props;
+
+        return tabs.find(tab => tab.id === currentTabId) || tabs[0];
+    }
+
     render() {
-        const { currentTab, tabs } = this.props;
+        const { tabs } = this.props;
+
+        const currentTab = this.findCurrentTab();
 
         return (
             <div className="tabs">
                 <div className="tabs__titles">
-                    {tabs.map((tab, index) =>
+                    {tabs.map(tab =>
                         <button
-                            className={"tabs__btn" + ((index === +currentTab) ? " is-active" : "")}
+                            className={"tabs__btn" + (tab.id === currentTab.id ? " is-active" : "")}
                             type="button"
-                            onClick={() => this.onTabClick(index)}
-                            key={tab.title}>{tab.title}</button>
+                            onClick={() => this.onTabClick(tab.id)}
+                            key={tab.id}>{tab.title}</button>
                     )}
                 </div>
                 <div className="tabs__content">
-                    {tabs[currentTab] ? tabs[currentTab].content : null}
+                    {currentTab.content}
                 </div>
             </div>
         );
     };
 }
 
-export default withLocalState('currentTab', 'setTab', 0)(Tabs);
+export default withLocalState('currentTabId', 'setTab', null)(Tabs);

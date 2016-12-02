@@ -9,9 +9,9 @@ import './App.css';
 export default class App extends Component {
     state = {
         tabs: [
-            { title: "Monday", content: "Monday Content" },
-            { title: "Tuesday", content: "Tuesday Content" },
-            { title: "Thursday", content: "Thursday Content" }
+            { title: "Monday", content: "Monday Content", id: "id1" },
+            { title: "Tuesday", content: "Tuesday Content", id: "id2" },
+            { title: "Thursday", content: "Thursday Content", id: "id3" }
         ],
         randomValue: 0
     };

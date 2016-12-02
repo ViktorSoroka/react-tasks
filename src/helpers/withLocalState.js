@@ -9,38 +9,20 @@ export default (stateName, updateLocalState, defaultValue) => WrappedComponent =
 
             const stateValueFromLS = storage.getItem(stateName);
 
-            if (!stateValueFromLS) {
+            if (stateValueFromLS === null) {
                 storage.setItem(stateName, defaultValue);
             }
 
             this.state = {
-                stateValue: stateValueFromLS ? stateValueFromLS : defaultValue
+                stateValue: stateValueFromLS !== null ? stateValueFromLS : defaultValue
             };
         }
 
         updateLocalState = newStateValue => {
             storage.setItem(stateName, newStateValue);
 
-            this.setState({
-                stateValue: newStateValue
-            });
+            this.setState({ stateValue: newStateValue });
         };
-
-        componentWillReceiveProps() {
-            let stateValueFromLS = storage.getItem(stateName);
-
-            if (storage.getItem(stateName) === null) {
-                return this.setState({
-                    stateValue: defaultValue
-                });
-            }
-
-            if (stateValueFromLS !== this.state.stateValue) {
-                this.setState({
-                    stateValue: stateValueFromLS
-                });
-            }
-        }
 
         render() {
             const props = {
